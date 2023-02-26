@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>lucmsilva - MyIP</title>
-        <meta property="og:title" content="Lucas Gabriel (lucmsilva) - MyIP">
-        <meta property="og:description" content="Veja seu IP">
-        <meta property="og:url" content="https://lucmsilva651.github.io/myip">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-        <style>
-            body {
-            background-color: rgb(32,33,37);
-            color: white;
-            margin: 30px;
-            font-family: 'Open Sans', sans-serif;
-            }
-
-            a:link {
-            color: powderblue;
-            }
-
-            a:visited {
-            color: pink;
-            }
-
-            a:hover {
-            color: red;
-            }
-
-            a:active {
-            color: green;
-            }
-        </style>
-    </head>
-    <body>
-      <h1>Lucas Gabriel (lucmsilva) - MyIP</h1>
-      <hr>
-      <button onclick="checkIP()">Clique aqui para ver seu endereço IP</button>
-      <script type="text/javascript">
-          function checkIP() {
-            function getIP(json) {
-              var ip = json.ip;
-              alert("Seu endereço IP é: " + ip);
-            }
-            function makeHttpObject() {
-              try { return new XMLHttpRequest(); }
-              catch (error) {}
-              try { return new ActiveXObject("Msxml2.XMLHTTP"); }
-              catch (error) {}
-              try { return new ActiveXObject("Microsoft.XMLHTTP"); }
-              catch (error) {}
-              throw new Error("Não foi possível criar um objeto de solicitação HTTP.");
-            }
-            var request = makeHttpObject();
-            request.open("GET", "https://api.ipify.org?format=json", true);
-            request.send(null);
-            request.onreadystatechange = function() {
-              if (request.readyState == 4 && request.status == 200)
-                getIP(JSON.parse(request.responseText));
-            }
-          };
-        </script>
-      <hr>
-      <p><b>Desenvolvido por Lucas Gabriel (lucmsilva)</b></p>
-    </body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'pt-BR' }, 'google_translate_element')
+      }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lucmsilva - MyIP</title>
+    <meta property="og:title" content="Lucas Gabriel (lucmsilva) - MyIP">
+    <meta property="og:description" content="Veja seu IP">
+    <meta property="og:url" content="https://lucmsilva651.github.io/myip">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: rgb(32,33,37);
+        color: white;
+        margin: 30px;
+        font-family: 'Open Sans', sans-serif;
+      }
+      a:link {
+        color: powderblue;
+      }
+      a:visited {
+        color: pink;
+      }
+      a:hover {
+        color: red;
+      }
+      a:active {
+        color: green;
+      }
+    </style>
+    <nav>
+      <div id="google_translate_element"></div>
+    </nav>
+    <hr>
+  </head>
+  <body>
+    <h1>Lucas Gabriel (lucmsilva) - MyIP</h1>
+    <hr>
+    <button onclick="checkIP()">Clique aqui para ver seu endereço IP</button>
+    <script type="text/javascript">
+      function checkIP() {
+        function getIP(json) {
+          var ip = json.ip;
+          alert("Seu endereço IP é: " + ip);
+        }
+        function makeHttpObject() {
+          try { return new XMLHttpRequest(); }
+          catch (error) {}
+          try { return new ActiveXObject("Msxml2.XMLHTTP"); }
+          catch (error) {}
+          try { return new ActiveXObject("Microsoft.XMLHTTP"); }
+          catch (error) {}
+          throw new Error("Não foi possível criar um objeto de solicitação HTTP.");
+        }
+        var request = makeHttpObject();
+        request.open("GET", "https://api.ipify.org?format=json", true);
+        request.send(null);
+        request.onreadystatechange = function() {
+          if (request.readyState == 4 && request.status == 200)
+            getIP(JSON.parse(request.responseText));
+        }
+      };
+    </script>
+    <hr>
+    <p><b>Desenvolvido por Lucas Gabriel (lucmsilva)</b></p>
+  </body>
 </html>
