@@ -633,6 +633,60 @@
                 }
             </style>
         </div>
+        <div id="content"
+            style="--color-new-tab-page-attribution-foreground:rgba(232, 234, 237, 1); --color-new-tab-page-most-visited-foreground:rgba(232, 234, 237, 1); --ntp-logo-color:rgba(255, 255, 255, 1);">
+            <ntp-iframe id="oneGoogleBar"
+                allow="camera chrome-untrusted://new-tab-page; display-capture chrome-untrusted://new-tab-page"
+                src="chrome-untrusted://new-tab-page/one-google-bar?paramsencoded="
+                style="clip-path: url(&quot;#oneGoogleBarClipPath&quot;); z-index: 1000;"></ntp-iframe>
+            <dom-if style="display: none;">
+                <template is="dom-if"></template>
+            </dom-if><dom-if style="display: none;">
+                <template is="dom-if"></template>
+            </dom-if>
+            <ntp-logo id="logo" single-colored="">
+
+            </ntp-logo>
+            <div id="realboxContainer">
+                <ntp-realbox id="realbox" shown="" is-dark="">
+
+                </ntp-realbox><dom-if style="display: none;"><template is="dom-if"></template></dom-if>
+            </div><cr-most-visited id="mostVisited" use-white-tile-icon_="" is-dark_="" visible_=""
+                custom-links-enabled_=""></cr-most-visited><dom-if style="display: none;"><template
+                    is="dom-if"></template></dom-if><dom-if style="display: none;"><template
+                    is="dom-if"></template></dom-if><dom-if style="display: none;"><template
+                    is="dom-if"></template></dom-if><a id="backgroundImageAttribution" hidden="">
+                <div id="backgroundImageAttribution1Container">
+                    <div id="linkIcon" hidden=""></div>
+                    <div id="backgroundImageAttribution1">
+
+                    </div>
+                </div>
+                <div id="backgroundImageAttribution2" hidden="">
+
+                </div>
+            </a>
+            <div id="customizeButtonContainer"><cr-button id="customizeButton" title="Personalizar esta página" --=""
+                    role="button" tabindex="0" aria-disabled="false">
+                    <div id="customizeIcon"></div>
+                    <div id="customizeText">
+                        Mudar para a nova página de registro UR reforçada
+                    </div>
+                </cr-button></div>
+            <div id="themeAttribution" hidden="">
+                <div>Tema criado por</div><img src="undefined"><img>
+            </div><dom-if style="display: none;"><template></template></dom-if>
+            <div id="contentBottomSpacer"></div>
+        </div>
+        <dom-if restamp="" style="display: none;"><template></template></dom-if>
+        <dom-if id="customizeDialogIf" restamp="" style="display: none;"><template is="dom-if"></template></dom-if>
+        <svg>
+            <defs>
+                <clipPath id="oneGoogleBarClipPath">
+                    <rect x="-8" y="-8" width="2449" height="79.9375"></rect>
+                </clipPath>
+            </defs>
+        </svg>
     </ntp-app>
     <script type="module" src="new_tab_page.js"></script>
     <link rel="stylesheet" href="chrome://resources/css/text_defaults_md.css">
