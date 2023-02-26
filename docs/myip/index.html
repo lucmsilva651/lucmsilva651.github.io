@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta property="og:title" content="Lucas Gabriel (lucmsilva) - Template site name">
-        <meta property="og:description" content="Site description goes here">
+        <meta property="og:title" content="Lucas Gabriel (lucmsilva) - MyIP">
+        <meta property="og:description" content="See your IP.">
         <meta property="og:url" content="https://lucmsilva651.github.io/docs/misc/templatepage.html">
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
         <style>
@@ -34,7 +34,7 @@
         <script type="text/javascript">
             function getIP(json) {
               var ip = json.ip;
-              alert("Seu endereço IP é: " + ip);
+              alert("Your IP address is: " + ip);
             }
           
             function makeHttpObject() {
@@ -45,7 +45,7 @@
               try {return new ActiveXObject("Microsoft.XMLHTTP");}
               catch (error) {}
           
-              throw new Error("Não foi possível criar um objeto de solicitação HTTP.");
+              throw new Error("Unable to create an HTTP request object.");
             }
           
             var request = makeHttpObject();
