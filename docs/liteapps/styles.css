@@ -16,3 +16,23 @@ body {
   a:active {
     color: green;
   }
+  .tabcontent {
+    display: none;
+  }
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.0s;
+  }
+  .tab button.active {
+    background-color: #ccc;
+  }
