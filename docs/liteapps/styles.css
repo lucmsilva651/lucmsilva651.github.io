@@ -21,6 +21,7 @@ body {
   }
   .tab {
     overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
     border: 1px solid whitesmoke;
     background-color: white;
   }
