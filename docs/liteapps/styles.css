@@ -21,11 +21,11 @@ body {
   }
   .tab {
     overflow: hidden;
-    border: 1px solid #ffffff;
     background-color: #202125;
   }
   .tab button {
     background-color: inherit;
+    color: white;
     float: left;
     border: none;
     outline: none;
