@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Exemplo de Integração da API do YouTube</title>
-</head>
-<body>
-	<h1>Exemplo de Integração da API do YouTube</h1>
-	<p>Insira uma palavra-chave para buscar vídeos:</p>
-	<input type="text" id="keyword" name="keyword">
-	<button onclick="searchVideos()">Buscar</button>
-	<div id="results"></div>
+  <head>
+    <title>Exemplo de Integração da API do YouTube</title>
+  </head>
+  <body>
+    <h1>Exemplo de Integração da API do YouTube</h1>
+    <p>Insira uma palavra-chave para buscar vídeos:</p>
+    <input type="text" id="keyword" name="keyword">
+    <button onclick="searchVideos()">Buscar</button>
+    <div id="results"></div>
 
-	<script src="https://apis.google.com/js/api.js"></script>
-	<script>
-		function searchVideos() {
-			var keyword = document.getElementById('keyword').value;
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function searchVideos() {
+        var keyword = document.getElementById('keyword').value;
+        var results = document.getElementById('results');
+        results.innerHTML = '';
 
-			gapi.client.load('youtube', 'v3', function() {
-				var request = gapi.client.youtube.search.list({
-					part: 'snippet',
-					q: keyword,
-					type: 'video'
-				});
+        gapi.client.init({
+          apiKey: 'AIzaSyB5hw1BAeywJF9Ite8i7Gsc4sEl0bWTO4Q',
+          discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest"],
+        }).then(function() {
+          return gapi.client.youtube.search.list({
+            "part": "snippet",
+            "type": "video",
+            "q": keyword,
+            "maxResults": 10
+          });
+        }).then(function(response) {
+          var items = response.result.items;
+          for (var i = 0; i < items.length; i++) {
+            var videoId = items[i].id.videoId;
+            var videoTitle = items[i].snippet.title;
+            var videoThumbnail = items[i].snippet.thumbnails.medium.url;
 
-				request.execute(function(response) {
-					var results = document.getElementById('results');
-					results.innerHTML = '';
+            var videoElement = '<div>';
+            videoElement += '<h2>' + videoTitle + '</h2>';
+            videoElement += '<a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank">';
+            videoElement += '<img src="' + videoThumbnail + '">';
+            videoElement += '</a>';
+            videoElement += '</div>';
 
-					var items = response.result.items;
-					for (var i = 0; i < items.length; i++) {
-						var videoId = items[i].id.videoId;
-						var videoTitle = items[i].snippet.title;
-						var videoThumbnail = items[i].snippet.thumbnails.medium.url;
-
-						var videoElement = '<div>';
-						videoElement += '<h2>' + videoTitle + '</h2>';
-						videoElement += '<a href="https://www.youtube.com/watch?v=' + videoId + '" target="_blank">';
-						videoElement += '<img src="' + videoThumbnail + '">';
-						videoElement += '</a>';
-						videoElement += '</div>';
-
-						results.innerHTML += videoElement;
-					}
-				});
-			});
-		}
-
-		function init() {
-			gapi.client.init({
-				apiKey: 'AIzaSyB5hw1BAeywJF9Ite8i7Gsc4sEl0bWTO4Q'
-			});
-		}
-
-		gapi.load('client', init);
-	</script>
-</body>
+            results.innerHTML += videoElement;
+          }
+        }, function(error) {
+          console.error('Erro ao buscar vídeos', error);
+        });
+      }
+    </script>
+  </body>
 </html>
